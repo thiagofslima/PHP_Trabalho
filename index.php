@@ -1,9 +1,10 @@
-<?php 
-    include_once 'header.php'; 
+<?php
+    include_once 'header.php';
     include_once 'footer.php';
 ?>
 
 <html lang="pt-br">
+
     <head>
         <meta charset="UTF-8">
         <title>Página do Thiago Lima</title>
@@ -12,8 +13,9 @@
     </head>
 
     <body>
-    
-    <h1>Página Inicial</h1>
+
+        <h1>Página Inicial</h1>
 
     </body>
+
 </html>
