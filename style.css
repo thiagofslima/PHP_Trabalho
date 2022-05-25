@@ -41,6 +41,8 @@
     background-color: #343A40;
     padding: 0px;
     margin-top: -1px;
+    /* Para sub-menu sobrepor o formulário */
+    position: absolute; z-index: 20000;
 }
 
 .nav-sub-item {
@@ -64,4 +66,24 @@
     width: 1000px;
     margin: auto;
     padding-bottom: 2rem;
+}
+
+.titulo {
+    text-align: center;
+    margin: 8px;
+}
+
+.listar {
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+
+.alinhar-direita {
+    float: right;
+    margin-right: 15px;
+}
+
+.centro-margin {
+    margin: 0 auto;    
 }

@@ -7,10 +7,10 @@
 <nav class="navbar navbar-dark bg-dark">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="../index.php">Home</a>
+            <a class="nav-link" href="/index.php">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Sistema</a>
+            <a class="nav-link" href="/sistema/view/clientes.php">Clientes</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Lista 1</a>
