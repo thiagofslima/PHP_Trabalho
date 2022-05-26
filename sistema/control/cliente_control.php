@@ -6,6 +6,9 @@
     if(isset($_GET['acao'])) {
         $acao = $_GET['acao'];
     }
+    else if(isset($_GET['acao'])) {
+        $acao = $_GET['acao'];
+    }
     else {
         $acao ="";
     }
@@ -19,12 +22,20 @@
         $cliente->setSexo($_POST['sexo']);
 
         $cliente->create();
+    }else if($acao == "editar") {
+        $cliente->setId($_POST['id']);
+        $cliente->setNome($_POST['nome']);
+        $cliente->setSobrenome($_POST['sobrenome']);
+        $cliente->setEmail($_POST['email']);
+        $cliente->setIdade($_POST['idade']);
+        $cliente->setSexo($_POST['sexo']);
         
-        header("Location: ../view/clientes.php");
+        $cliente->update();
+    }else if($acao == "deletar") {
+        $cliente->setId($_POST['id']);
+        $cliente->delete();
     }
-    else {
-
-    }
+     header("Location: ../view/clientes.php");
 
 
 ?>

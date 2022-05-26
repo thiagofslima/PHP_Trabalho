@@ -5,6 +5,15 @@
     include_once Raiz . 'footer.php';
     
     $cliente = new Cliente();
+
+    if(isset($_GET['id']) && ($_GET['acao'] == "editar" || $_GET['acao'] == "deletar")) {
+        $id = $_GET['id'];
+        $cliente->readId($id);
+    }
+
+    function comboBox($sexo) {
+
+    }
 ?>
 
 <html>
@@ -15,49 +24,66 @@
     </head>
 
     <body>
-        <h1 class="titulo">Gestão de Clientes</h1>
+        <?php
+            if($_GET['acao'] == "cadastrar") {
 
-        <form id="cadastro" class="exercicios" name="cadastro" method="post" action="../control/cliente_control.php?acao=cadastrar">
+                echo "<h1 class='titulo'>Cadastar Cliente</h1>";
+            }
+            else if($_GET['acao'] == "editar") {
+                echo "<h1 class='titulo'>Editar Cliente</h1>";
+            }
+            echo "<hr>";
+        ?>
+
+        <form id="cadastro" class="exercicios" name="cadastro" method="post" action="../control/cliente_control.php?acao=<?php echo $_GET['acao']; ?>">
             <div class="form-row">
+                <!-- Id -->
+                <div class="col-md-1 mb-3">
+                    <label for="">Id</label>
+                    <input type="text" class="form-control" name="id" readonly value="<?php echo $cliente->getId(); ?>">
+                </div>
+                <!-- Nome -->
                 <div class="col-md-6 mb-3">
                     <label for="">Nome</label>
-                    <input type="text" class="form-control" name="nome">
+                    <input type="text" class="form-control" name="nome" value="<?php echo $cliente->getNome(); ?>">
                 </div>
-                <div class="col-md-6 mb-3">
+                <!-- Sobrenome -->
+                <div class="col-md-5 mb-3">
                     <label for="">Sobrenome</label>
-                    <input type="text" class="form-control" name="sobrenome">
+                    <input type="text" class="form-control" name="sobrenome" value="<?php echo $cliente->getSobrenome(); ?>">
                 </div>
 
             </div>
             <div class="form-row">
                 <!-- Email -->
                 <div class="col-md-8 mb-3">
-                    <label for="inputEmail4">Email</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                        </div>
-                        <input type="email" class="form-control" id="inputEmail4" name="email">
-                    </div>
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" value="<?php echo $cliente->getEmail(); ?>" placeholder="email@exemplo.com">
                 </div>
                 <!-- Idade -->
                 <div class="col-md-1 mb-3">
                     <label for="inputIdade">Idade</label>
-                    <input type="text" class="form-control" id="inputIdade" name="idade">
+                    <input type="text" class="form-control" id="inputIdade" name="idade" value="<?php echo $cliente->getIdade(); ?>">
                 </div>
                 <!-- Sexo -->
                 <!-- <div class="form-group col-md-2"> -->
                 <div class="col-md-3 mb-3">
                     <label>Sexo</label>
-                    <select class="custom-select" name="sexo" id="" name="sexo">
+                    <select class="custom-select" name="sexo" id="">
                         <option selected disabled>Selecione..</option>
-                        <option value="M">Masculino</option>
-                        <option value="F">Feminino</option>
+                        <option value="M"  <?=($cliente->getSexo() == 'M')? 'selected' : ''?>>Masculino</option>
+                        <option value="F"  <?=($cliente->getSexo() == 'F')? 'selected' : ''?>>Feminino</option>
                     </select>
                 </div>
             </div>
+            <!-- <input class="form-control" type="date" name="" id=""> -->
+            
             <br>
-            <button type="submit" class="btn btn-primary" id="cadastrar">Cadastrar</button>
+            <div class="alinhar-direita">
+                <button type="submit" class="btn btn-primary" id="cadastrar">Salvar</button>
+                <a href="../view/clientes.php"><button type="button" class="btn btn-secundary" id="voltar">Voltar</button></a>
+
+            </div>
         </form>
         
         <?php

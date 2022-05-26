@@ -87,14 +87,49 @@
 
             return $sql_query;
         }
+        public function readId($id) {
+            try {
+                $sql_code = "SELECT * FROM Cliente WHERE Id LIKE $id";
+                $sql_query = Conexao::executar_sql($sql_code);
+                
+                $dados = $sql_query->fetch_assoc();
+                self::setId($dados['Id']);
+                self::setNome($dados['Nome']);
+                self::setSobrenome($dados['Sobrenome']);
+                self::setEmail($dados['Email']);
+                self::setIdade($dados['Idade']);
+                self::setSexo($dados['Sexo']);
+            } catch (Exception $e) {
+                echo "Ocorreu um erro ao localizar cliente.";
+            }
 
-        public function delete($id) {
-            // $sql_code = "DELETE FROM Cliente WHERE Id = $id";
-            // $sql_query = Conexao::executar_sql($sql_code);
+            return $sql_query;
+        }
 
-            // return $sql_query;
+        public function update() {
+            try {
+                $sql_code = "UPDATE Cliente SET
+                            Nome = '" . self::getNome() . "',
+                            Sobrenome = '" . self::getSobrenome() . "',
+                            Email = '" . self::getEmail() . "',
+                            Idade = ". self::getIdade() .",
+                            Sexo = '" . self::getSexo() ."'
+                            WHERE Id = " . self::getId();
 
-            echo "grdfsgbfds";
+                echo $sql_code;
+                $sql_query = Conexao::executar_sql($sql_code);
+                return $sql_query;
+            }
+            catch (Exception $e) {
+                echo "Erro! Cliente não foi alterado.";
+            }
+        }
+
+        public function delete() {
+            $sql_code = "DELETE FROM Cliente WHERE Id = " . self::getId();
+            $sql_query = Conexao::executar_sql($sql_code);
+
+            return $sql_query;
         }
     }
 ?>

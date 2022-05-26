@@ -4,12 +4,14 @@
     include_once Raiz . 'header.php';
     include_once Raiz . 'footer.php';
     $cliente = new Cliente();
+    $contadorClientes = 0;
 ?>
 
 <html>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
         <link rel="stylesheet" href="../../style.css">
         <title>Lista de Clientes</title>
     </head>
@@ -18,18 +20,18 @@
         <h1 class="titulo">Lista de Clientes</h1>
 
         <hr>
-        <form action="../view/cliente_detalhes.php?acao=cadastrar" style="text-align: center;">
-            <button type="submit" class="btn btn-primary">Novo Cliente</button>
-        </form>
-        <hr>
-
+        
         <div class="listar">
+            <form action="../view/cliente_detalhes.php?acao=cadastrar" method="post">
+                <button type="submit" class="btn btn-primary">Novo Cliente</button>
+            </form>
             
             <form class="form-inline alinhar-direita" method="post">
 
                 <div class="row form-group">
                     <div class="form-check-inline"><label class="form-check-label">Ordenar por:</label></div>
-                    <select class="custom-select mr-sm-2" name="ordem" id="" name="ordem">
+                    <?php $teste = "teste"?>
+                    <select class="custom-select mr-sm-2" name="ordem" id="">
                         <option value="Id">Id</option>
                         <option selected value="Nome">Nome</option>
                         <option value="Sobrenome">Sobrenome</option>
@@ -37,8 +39,7 @@
                         <option value="Idade">Idade</option>
                         <option value="Sexo">Sexo</option>
                     </select>
-
-                    <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" name="pesquisar" aria-label="Pesquisar">
+                    <input class="form-control mr-sm-2" type="search" placeholder="" name="pesquisar" aria-label="Pesquisar">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
                 </div>
 
@@ -84,6 +85,7 @@
                     else {
                         //Pega o primeiro registro e atribui para $dados, e segue o loop
                         while($dados = $sql_query->fetch_assoc()) {
+                            $contadorClientes++;
 
                         
                 ?>
@@ -97,11 +99,14 @@
                     <td><?php echo $dados['Sexo']; ?></td>
                     <td>
                         <div class="form-inline">
-                            <form class="centro-margin" action="" method="post">
-                                <button type="button" class="btn btn-warning btn-sm">Editar</button>
+                            <!-- Botão Editar -->
+                            <form class="centro-margin" method="post" action="../view/cliente_detalhes.php?acao=editar&&id=<?php echo $dados['Id']?>">
+                                <button type="submit" class="btn btn-warning btn-sm">Editar</button>
                             </form>
-                            <form class="centro-margin" action="" method="post">
-                                <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+                            <!-- Botão Excluir -->
+                            <form class="centro-margin" method="post" action="../view/cliente_detalhes.php?acao=deletar&&id=<?php echo $dados['Id']?>">
+                                
+                                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
                             </form>
                         </div>
                     </td>
@@ -113,7 +118,7 @@
 
                 </tbody>
             </table>
+            <?php echo "Total de Clientes: " . $contadorClientes ?>
         </div>
-
     </body>
 </html>
