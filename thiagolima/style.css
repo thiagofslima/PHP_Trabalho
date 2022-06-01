@@ -1,0 +1,249 @@
+body {
+    background-color: #fcfcfc;
+    
+}
+
+:root {
+    --corazul: #188be9;
+}
+
+#home {
+    background-image: url(./images/fundo.jpg);
+    background-color: #cccccc;
+    height: 90%;
+    background-size: cover; 
+  
+}
+#home h1, #home p {
+    color: white;
+    position: absolute;
+    /* font: 700 40px/1.2 Raleway, sans-serif; */
+    /* letter-spacing: 5px; */
+
+    /* height: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+
+	/* left: 50%;
+	top: 50% */
+    
+
+    width: 100%;
+    top: 40%;
+    text-align: center;
+    
+
+    text-shadow: 0 0 0.1em #188be9, 0 0 0.1em #188be9, 0 0 0.1em #188be9;
+    /* text-shadow: -1px 0 #188be9, 0 1px #188be9, 1px 0 #188be9, 0 -1px #188be9 */
+
+
+}
+
+#home p {
+    top: 45%;
+    font-family: Raleway, "Times New Roman", Times, sans-serif;
+	font-size: 22px;
+	margin: 15px 0;
+
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+.home-overlay {
+    background-color: rgba(44, 62, 80, 0.3);
+    background-image: url("./images/pattern.png");
+    background-repeat: repeat;
+    height: 90%;
+    margin-top: 50px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.navbar {
+    padding: 0%;
+    font-size: 15px;
+    height: 50px;
+}
+
+.nav {
+    height: 100%;
+    align-items: center;
+    margin: auto;
+}
+
+.nav-item:hover {
+    background-color: #188be9;
+    height: 100%;
+}
+
+.nav-item:hover a {
+    color: #FFFFFF;
+}
+
+.nav-item:hover .nav-link {
+    /* Efeito de baixar a letra quando mouse ta em cima do menu */
+    height: 100%;
+    line-height: 2.3;
+}
+
+.nav-item:hover .nav-sub {
+    display: block;
+}
+
+
+.nav-link {
+    color: #FFFFFF;
+}
+
+.nav-sub {
+    width: 120px;
+    display: none;
+    position: absolute;
+    background-color: #343A40;
+    padding: 0px;
+    margin-top: -1px;
+    /* Para sub-menu sobrepor o formulário */
+    position: absolute; z-index: 20000;
+}
+
+.nav-sub-item {
+    list-style-type: none;
+}
+
+.nav-sub-item:hover {
+    background-color: rgb(24, 139, 233);
+}
+
+.nav-sub-link {
+    margin-left: 10%;
+}
+
+.nav-sub-link:hover {
+    text-decoration: none;
+}
+
+.exercicios {
+    text-align: center;
+    width: 1000px;
+    margin: auto;
+    padding-bottom: 2rem;
+}
+
+.titulo {
+    text-align: center;
+    margin: 20px;
+    font-family: 'Poppins';
+    font-weight: 600;
+
+
+    text-shadow: -1px -1px 0px rgb(230, 230, 230),
+    1px 1px 0px rgb(230, 230, 230),
+    3px 3px 0px rgb(230, 230, 230);
+
+
+}
+
+.listar {
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+
+.alinhar-direita {
+    float: right;
+    margin-right: 15px;
+}
+
+.centro-margin {
+    margin: 0 auto;    
+}
+
+footer a:hover {
+    text-decoration: none;
+    text-shadow: 0 0 0.1em #188be9, 0 0 0.1em #188be9,
+    0 0 0.1em #188be9
+}
+
+.contato-corpo {
+    padding-top: 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contato-corpo h2 {
+    font-weight: bold;
+}
+
+.contato-info {
+    float: right;
+
+}
+
+.contato-info ul {
+    padding-top: 20px;
+    list-style-type: none;
+    text-align: left;
+}
+.contato-info ul li a{
+    text-decoration: none;
+    color: #636363;
+}
+
+.contato-form {
+    width: 700px;
+}
+
+.linha-vertical {
+    height: 350px;/*Altura da linha*/
+    border-left: 1px groove; /* Adiciona borda esquerda na div como ser fosse uma linha.*/
+    border-style: rgb(92, 92, 92);
+    margin-left: 100px;
+    float: right;
+}
+
+.fa-solid {
+      font-size: 18px;
+      color: var(--corazul);
+      margin-right: 5px;
+}
+
+.form-control:required:focus:invalid {
+    border-color: red;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+    outline: 0 none;
+}
+.form-control:required:focus:valid {
+      border-color: green;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px green;
+      outline: 0 none;
+}
+
+/* input:not([value=""]):not(:focus):invalid {
+    border-color: red;
+    outline: 0 none;
+} */
+
+.form-control[value]:not([value=""]):required:not(:focus):invalid {
+    border-color: red;
+    outline: 0 none;
+}
+
+/* REMOVER SETAR DO INPUT NUMBER */
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Remove do Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.exibe-pdf {
+    width: 90%;
+    margin: auto;
+    /* height: 70%; */
+    display: none;
+    margin-bottom: 60px;
+}

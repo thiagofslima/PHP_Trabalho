@@ -1,6 +1,5 @@
 <?php
-include_once '../header.php';
-include_once '../footer.php';
+    require_once '../includes.php';
 ?>
 
 <?php
@@ -16,7 +15,7 @@ function somar_valores($valor1, $valor2)
     <title>Exercício 1</title>
 </head>
 
-<body1>
+<body>
     <div class="exercicios">
         <h2>Exercício 1</h2>
         <hr>

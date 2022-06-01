@@ -14,7 +14,13 @@
 
     <body>
 
-        <h1>Página Inicial</h1>
+        <div id="home">
+            <div class="home-overlay">
+
+            </div>
+            <h1>Soluções com Software Livre</h1>
+            <p>Trabalho - Sistema PHP MVC</p>
+        </div>
 
     </body>
 

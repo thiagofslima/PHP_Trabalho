@@ -1,6 +1,5 @@
 <?php
-include_once '../header.php';
-include_once '../footer.php';
+    require_once '../includes.php';
 ?>
 
 <html lang="pt-br">

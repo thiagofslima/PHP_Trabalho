@@ -1,13 +1,12 @@
 <?php
-    define('Raiz', $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR);
+    require_once '../../includes.php';
+    
     include_once '../model/cliente_model.php';
-    include_once Raiz . 'header.php';
-    include_once Raiz . 'footer.php';
     $cliente = new Cliente();
     $contadorClientes = 0;
 ?>
 
-<html>
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -45,7 +44,7 @@
 
             </form>
 
-            <table class="table table-bordered table-hover table-light">
+            <table class="table table-bordered table-hover table-secundary">
                 <thead>
                 <tr>
                     <th scope="col" width="80px">Id</th>
